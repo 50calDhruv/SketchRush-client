@@ -1,7 +1,18 @@
 export interface Player {
   socketId: string;
   username: string;
+  score: number;
 }
+
+export interface GameState {
+  status: "waiting" | "playing";
+  currentDrawerIndex: number;
+  currentWord: string;
+  round: number;
+  maxRounds: number;
+  timeLeft: number;
+}
+
 
 export interface Room {
   id: string;
@@ -10,6 +21,7 @@ export interface Room {
   ownerId: string;
   maxPlayers: number;
   players: Player[];
+  gameState: GameState;
 }
 
 export interface PublicRoom {
